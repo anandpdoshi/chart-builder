@@ -19,3 +19,28 @@
 	width: 100%;
 	min-height: 20px;
 }
+
+.slick-cell-checkboxsel {
+	background: #f0f0f0;
+	border-right-color: silver;
+	border-right-style: solid;
+}
+
+#legend {
+	margin-top: 20px;
+	padding-left: 30px;
+}
+
+#legend .row {
+	height: 50px; 
+	vertical-align: middle;
+}
+
+#legend .legend-circle {
+	width: 30px; 
+	height: 30px; 
+	border-radius: 100%;
+	display: inline-block; 
+	vertical-align: middle;
+	margin-right: 5px;
+}

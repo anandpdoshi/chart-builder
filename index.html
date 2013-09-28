@@ -14,6 +14,14 @@
 	<script src="js/lib/jquery.event.drag-2.2.js"></script>
 	<script src="js/lib/slick.core.js"></script>
 	<script src="js/lib/slick.grid.js"></script>
+	<script src="js/lib/slick.checkboxselectcolumn.js"></script>
+	<script src="js/lib/slick.cellcopymanager.js"></script>
+	<script src="js/lib/slick.cellrangedecorator.js"></script>
+	<script src="js/lib/slick.cellrangeselector.js"></script>
+	<script src="js/lib/slick.cellselectionmodel.js"></script>
+	<script src="js/lib/slick.rowselectionmodel.js"></script>
+	<script src="js/lib/slick.editors.js"></script>
+	<script src="js/lib/slick.formatters.js"></script>
 	<script src="js/lib/Chart.min.js"></script>
 	<script src="js/csv-to-array.js"></script>
 	<script src="js/chart-builder.js"></script>
@@ -21,7 +29,7 @@
 	
 	</script>
 </head>
-<body style="background-color: #ddd;">
+<body>
 	<nav class="navbar navbar-default navbar-fixed" role="navigation">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">	
@@ -43,20 +51,24 @@
 			<select class="form-control" id="end-column">
 			</select>
 		</div>
-		<button type="submit" class="btn btn-primary" data-clipboard-text = "testing"
+		<div class="form-group">
+			<select class="form-control" id="legend-column">
+			</select>
+		</div>
+		
+		<!-- <button type="submit" class="btn btn-primary" data-clipboard-text = "testing"
 			id="copy-to-clipboard">Copy HTML</button>
-		</form>
+		</form> -->
 	</nav>
-	<div style="margin-top: -20px;">
-		<div class="row">
-			<div class="col-md-6" style="padding: 0px 30px 30px 30px; background-color: #fff;">
-				<h3>Chart</h3>
-				<canvas id="chart" height="400">
+	<div style="margin-top: -40px;">
+		<div class="row" style="margin: 0px;">
+			<div class="col-md-6">
+				<canvas id="chart" height="400" style="margin-top: 15px;">
 				</canvas>
+				<div id="legend"></div>
 			</div>
-			<div class="col-md-6" style="padding: 0px 30px;">
-				<h3>Data</h3>
-				<div id="slickgrid" style="height: 400px; font-size: 11px; ">
+			<div class="col-md-6" style="padding: 0px;">
+				<div id="slickgrid" style="height: 400px; font-size: 11px;">
 				</div>
 			</div>
 		</div>
