@@ -23,6 +23,7 @@
 	<script src="js/lib/slick.editors.js"></script>
 	<script src="js/lib/slick.formatters.js"></script>
 	<script src="js/lib/Chart.min.js"></script>
+	<script src="js/lib/class.js"></script>
 	<script src="js/csv-to-array.js"></script>
 	<script src="js/chart-builder.js"></script>
 	<script>	
@@ -33,34 +34,21 @@
 	<nav class="navbar navbar-default navbar-fixed" role="navigation">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">	
-		<a class="navbar-brand" href="#">Simple Chart Builder</a>
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+			      <span class="sr-only">Toggle navigation</span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+			    </button>
+			<a class="navbar-brand" href="#">Simple Chart Builder</a>
 		</div>
-		<form class="navbar-form navbar-left form-inline">
-		<div class="form-group">
-			<select class="form-control" id="chart-type">
-				<option value="Line">Line</option>
-				<option value="Bar">Bar</option>
-				<option value="Pie">Pie</option>
-			</select>
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#" id="chart-builder-edit">Edit</a></li>
+			</ul>
 		</div>
-		<div class="form-group">
-			<select class="form-control" id="start-column">
-			</select>
-		</div>
-		<div class="form-group">
-			<select class="form-control" id="end-column">
-			</select>
-		</div>
-		<div class="form-group">
-			<select class="form-control" id="legend-column">
-			</select>
-		</div>
-		
-		<!-- <button type="submit" class="btn btn-primary" data-clipboard-text = "testing"
-			id="copy-to-clipboard">Copy HTML</button>
-		</form> -->
 	</nav>
-	<div style="margin-top: -40px;">
+	<div style="margin-top: -21px;">
 		<div class="row" style="margin: 0px;">
 			<div class="col-md-6">
 				<canvas id="chart" height="400" style="margin-top: 15px;">
