@@ -145,7 +145,11 @@ var ChartBuilder = Class.extend({
 			enableColumnReorder: false
 		};
 		
-		this.grid = new Slick.Grid("#slickgrid", this.objlist, this.columns, options);
+		this.checkboxSelector = new Slick.CheckboxSelectColumn({
+	      cssClass: "slick-cell-checkboxsel"
+	    });
+		var columns = [this.checkboxSelector.getColumnDefinition()].concat(this.columns);
+		this.grid = new Slick.Grid("#slickgrid", this.objlist, columns, options);
 		this.grid.setSelectionModel(new Slick.RowSelectionModel({selectActiveRow: false}));
 		this.grid.registerPlugin(this.checkboxSelector);
 		this.grid.setSelectedRows(this.conf.selected_rowids);
@@ -158,12 +162,6 @@ var ChartBuilder = Class.extend({
 	
 	set_columns: function() {
 		this.columns = [];
-		
-		this.checkboxSelector = new Slick.CheckboxSelectColumn({
-	      cssClass: "slick-cell-checkboxsel"
-	    });
-		this.columns.push(this.checkboxSelector.getColumnDefinition());
-		
 		var head_row = this.data[this.conf.head_rowid];
 		for(var i=0, len=head_row.length; i < len; i++) {
 			var name = head_row[i];
@@ -176,8 +174,8 @@ var ChartBuilder = Class.extend({
 		this.objlist = [];
 		for(var ri=(this.conf.head_rowid + 1), rlen=this.data.length; ri<rlen; ri++) {
 			var row = {rgb: this.random_rgb().join(",")};
-			for(var ci=1, clen=this.columns.length; ci < clen; ci++) {
-				var val = this.data[ri][ci-1];
+			for(var ci=0, clen=this.columns.length; ci < clen; ci++) {
+				var val = this.data[ri][ci];
 				row[this.columns[ci].field] = val;
 				
 				// TODO better type identifications
@@ -197,7 +195,7 @@ var ChartBuilder = Class.extend({
 	set_column_selects: function() {
 		var me = this;
 		var start_colid, end_colid;
-		for(var i=1, l=this.columns.length; i<l; i++) {
+		for(var i=0, l=this.columns.length; i<l; i++) {
 			var name = this.columns[i].name;
 			this.start_select.append('<option value="'+i+'">'+name+'</option>');
 			if(this.columns[i].type==="number") {
